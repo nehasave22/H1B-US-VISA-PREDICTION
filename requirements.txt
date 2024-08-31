@@ -1,5 +1,5 @@
 streamlit==1.10.0
 pandas==1.4.0
-numpy
+numpy>=1.19.0,<1.20.0
 lightgbm==3.3.1
 pickle-mixin==1.0.2
