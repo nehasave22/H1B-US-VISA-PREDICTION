@@ -1,6 +1,5 @@
-import streamlit as st
-import re
-import pandas as pd
-from lightgbm import LGBMClassifier
-import pickle
-from datetime import date
+streamlit==1.10.0
+pandas==1.4.0
+numpy==1.21.4
+lightgbm==3.3.1
+pickle-mixin==1.0.2
