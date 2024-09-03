@@ -1,4 +1,5 @@
 streamlit
 lightgbm
-pandas  # if you use pandas
-numpy   # if you use numpy
+pandas  
+numpy  
+scikit-learn
