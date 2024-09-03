@@ -1,5 +1,0 @@
-streamlit==1.10.0
-pandas==1.4.0
-numpy
-lightgbm==3.3.1
-pickle-mixin==1.0.2
