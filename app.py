@@ -72,7 +72,7 @@ if df is not None:
     st.subheader('User Input parameters')
     st.write(df)
 
-    model = pickle.load(open("https://github.com/nehasave22/H1B-US-VISA-PREDICTION/blob/main/Final_Project.pkl", 'rb'))
+    model = pickle.load(open("Final_Project.pkl", 'rb'))
     prediction = model.predict(df)
     prediction_proba = model.predict_proba(df)
 
