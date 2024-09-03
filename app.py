@@ -84,15 +84,16 @@ df = user_input_features()
 # Function to load model from a GitHub raw URL
 def load_model(url):
     response = requests.get(url)
-    response.raise_for_status()  # Ensure the request was successful
+    response.raise_for_status()
     model_file = BytesIO(response.content)
     return pickle.load(model_file)
 
 # URL to the raw .pkl file on GitHub
-model_url = 'https://github.com/nehasave22/H1B-US-VISA-PREDICTION/blob/main/Final_Project.pkl'
+model_url = 'https://raw.githubusercontent.com/nehasave22/H1B-US-VISA-PREDICTION/main/Final_Project.pkl'
 
 # Load your model
 model = load_model(model_url)
+
 
 # Now you can use 'model' to make predictions
 if df is not None:
