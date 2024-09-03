@@ -4,7 +4,8 @@ import pandas as pd
 from lightgbm import LGBMClassifier
 import pickle
 from datetime import date
-
+import requests
+from io import BytesIO
 # CSS to inject contained in a string
 background_image = "https://github.com/nehasave22/H1B-US-VISA-PREDICTION/blob/main/H1B.png" 
 
@@ -68,7 +69,7 @@ def user_input_features():
 
 df = user_input_features()
 
-if df is not None:
+'''if df is not None:
     st.subheader('User Input parameters')
     st.write(df)
 
@@ -78,6 +79,29 @@ if df is not None:
 
     st.subheader('Prediction Probability')
     st.write('Chance for company to sponsor your H1B visa for the position:', prediction_proba[0][0]*100)
+    st.write('Chance for company to not sponsor your H1B Visa for the position:', prediction_proba[0][1]*100)'''
+
+# Function to load model from a GitHub raw URL
+def load_model(url):
+    response = requests.get(url)
+    response.raise_for_status()  # Ensure the request was successful
+    model_file = BytesIO(response.content)
+    return pickle.load(model_file)
+
+# URL to the raw .pkl file on GitHub
+model_url = 'https://github.com/nehasave22/H1B-US-VISA-PREDICTION/blob/main/Final_Project.pkl'
+
+# Load your model
+model = load_model(model_url)
+
+# Now you can use 'model' to make predictions
+if df is not None:
+    st.subheader('User Input parameters')
+    st.write(df)
+    prediction = model.predict(df)
+    prediction_proba = model.predict_proba(df)
+    st.subheader('Prediction Probability')
+    st.write('Chance for company to sponsor your H1B visa for the position:', prediction_proba[0][0]*100)
     st.write('Chance for company to not sponsor your H1B Visa for the position:', prediction_proba[0][1]*100)
 html_temp1 = """
     <div style="background-color:#010200;">
@@ -85,3 +109,4 @@ html_temp1 = """
     </div>
     """
 st.markdown(html_temp1, unsafe_allow_html=True)
+
