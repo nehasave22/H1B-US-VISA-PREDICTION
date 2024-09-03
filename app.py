@@ -6,7 +6,7 @@ import pickle
 from datetime import date
 
 # CSS to inject contained in a string
-background_image = "(C:/Users/saven/OneDrive/Documents/ALY6040/Group 2 Project Linkedin Job/H1B.png)" 
+background_image = "https://github.com/nehasave22/H1B-US-VISA-PREDICTION/blob/main/H1B.png" 
 
 html_temp = f"""
     <div style="background-image: {background_image}; background-size: cover;">
@@ -16,7 +16,7 @@ html_temp = f"""
     </div>
     """    
 st.markdown(html_temp, unsafe_allow_html=True)
-st.image('C:/Users/saven/OneDrive/Documents/ALY6040/Group 2 Project Linkedin Job/H1B.png', use_column_width=True)
+st.image("https://github.com/nehasave22/H1B-US-VISA-PREDICTION/blob/main/H1B.png", use_column_width=True)
 
 def user_input_features():
     st.subheader('Please Enter the below information')
